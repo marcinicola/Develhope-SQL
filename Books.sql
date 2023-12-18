@@ -1,19 +1,19 @@
 CREATE TABLE Books (
     book_id INT PRIMARY KEY,
-    title VARCHAR NOT NULL,
-    author VARCHAR NOT NULL,
-    genre VARCHAR,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    genre VARCHAR(50),
     published_year INT,
-    isbn VARCHAR UNIQUE,
-    price DECIMAL,
-    rating FLOAT,
-    stock_count INT,
+    isbn VARCHAR(13) UNIQUE,
+    price DECIMAL(10, 2),
+    rating DECIMAL(3, 1),
+    stock_count INT
 );
 
 ALTER TABLE
     Books
 ADD
-    COLUMN publisher VARCHAR,
+    COLUMN publisher VARCHAR(255),
 ADD
     COLUMN num_pages INT;
 
@@ -87,3 +87,15 @@ SET
     stock_count = stock_count - 1
 WHERE
     title = 'War and Peace';
+
+GRANT
+SELECT
+,
+UPDATE
+    ON Books TO 'martin' @'localhost';
+
+REVOKE
+UPDATE
+    ON Books
+FROM
+    'martin' @'localhost';
