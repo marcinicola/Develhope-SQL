@@ -1,19 +1,18 @@
 CREATE TABLE Books (
     book_id INT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    author VARCHAR(255) NOT NULL,
-    genre VARCHAR(50),
+    title VARCHAR NOT NULL,
+    author VARCHAR NOT NULL,
+    genre VARCHAR,
     published_year INT,
-    isbn VARCHAR(13) UNIQUE,
-    price DECIMAL(10, 2),
-    rating DECIMAL(3, 1),
-    stock_count INT
-);
-
+    isbn VARCHAR UNIQUE,
+    price DECIMAL,
+    rating FLOAT,
+    stock_count INT,
+)
 ALTER TABLE
     Books
 ADD
-    COLUMN publisher VARCHAR(255),
+    COLUMN publisher VARCHAR,
 ADD
     COLUMN num_pages INT;
 
@@ -94,7 +93,7 @@ SELECT
 UPDATE
     ON Books TO 'martin' @'localhost';
 
-REVOKE
+REVOKE DELETE,
 UPDATE
     ON Books
 FROM
