@@ -87,3 +87,9 @@ SET
     stock_count = stock_count - 1
 WHERE
     title = 'War and Peace';
+
+GRANT
+SELECT
+,
+UPDATE
+    ON Books TO 'martin'@'localhost';
