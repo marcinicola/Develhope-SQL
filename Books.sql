@@ -98,3 +98,12 @@ UPDATE
     ON Books
 FROM
     'martin' @'localhost';
+
+BEGIN TRANSACTION;
+
+DELETE FROM
+    Books
+WHERE
+    book_id = 101;
+
+COMMIT;
