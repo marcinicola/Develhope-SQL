@@ -8,12 +8,14 @@ CREATE TABLE Books (
     price DECIMAL,
     rating FLOAT,
     stock_count INT,
-    ALTER TABLE
-        Books
-    ADD
-        COLUMN publisher VARCHAR,
-    ADD
-        COLUMN num_pages INT;
+);
+
+ALTER TABLE
+    Books
+ADD
+    COLUMN publisher VARCHAR,
+ADD
+    COLUMN num_pages INT;
 
 INSERT INTO
     Books (
@@ -78,4 +80,10 @@ VALUES
         450
     );
 
-);
+UPDATE
+    Books
+SET
+    price = 12.99,
+    stock_count = stock_count - 1
+WHERE
+    title = 'War and Peace';
