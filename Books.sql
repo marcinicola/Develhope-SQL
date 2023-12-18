@@ -8,8 +8,7 @@ CREATE TABLE Books (
     price DECIMAL,
     rating FLOAT,
     stock_count INT,
-);
-
+)
 ALTER TABLE
     Books
 ADD
@@ -92,4 +91,8 @@ GRANT
 SELECT
 ,
 UPDATE
-    ON Books TO 'martin'@'localhost';
+    ON Books TO 'martin' @'localhost';
+
+REVOKE DELETE ON Books
+FROM
+    'martin' @'localhost';
